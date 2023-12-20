@@ -10,16 +10,22 @@ class SingleBook extends React.Component {
         this.handleHighlight = this.handleHighlight.bind(this);
     }
 
-    handleHighlight(event){
-        this.setState({selected: event.target.value})
+    handleHighlight(){
+        if (this.state.selected === false){
+            this.setState({selected: true});
+            document.getElementById(`${this.props.id}`).classList.add('selected');
+        } else {
+            this.setState({selected: false});
+            document.getElementById(`${this.props.id}`).classList.remove('selected');
+        }
     }
 
-    
+
 
     render(){
         return (
             <Col xs={12} md={3} key={this.props.id}>
-                <Card className='book-cover'>
+                <Card id={this.props.id} className='book-cover' onClick={this.handleHighlight}>
                     <Card.Img variant="top" src={this.props.img} />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
@@ -27,7 +33,6 @@ class SingleBook extends React.Component {
                 </Card>
             </Col>
         )
-
     }
 }
 
