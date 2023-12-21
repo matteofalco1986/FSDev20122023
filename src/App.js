@@ -1,37 +1,24 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import books from './data/books.json';
-import MyNav from './components/MyNav';
-import MyFooter from './components/MyFooter';
-import MyJumbotron from './components/MyJumbotron';
-import AllTheBooks from './components/AllTheBooks';
-// import SingleBook from './components/SingleBook';
-import BookList from './components/BookList';
-import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import MyNav from './components/MyNav'
+import MyFooter from './components/MyFooter'
+import MyJumbotron from './components/MyJumbotron'
+// import AllTheBooks from './components/AllTheBooks'
+import { Container } from 'react-bootstrap'
+import BookList from './components/BookList'
+
+import fantasy from './data/fantasy.json'
 
 function App() {
-	return (
-		<>
-			<Container fluid className="position-sticky sticky-top">
-				<span id="inizio"></span>
-				<span>
-					<MyNav />
-				</span>
-			</Container>
-			<Container fluid>
-				<MyJumbotron />
-			</Container>
-			<Container>
-				<BookList booksArray={books.history}/>
-			</Container>
-			<Container>
-				<AllTheBooks />
-			</Container>
-			<Container fluid>
-				<MyFooter />
-			</Container>
-		</>
-	);
+  return (
+    <Container>
+      <MyNav />
+      <MyJumbotron />
+      {/* <AllTheBooks /> */}
+      <BookList books={fantasy} />
+      <MyFooter />
+    </Container>
+  )
 }
 
-export default App;
+export default App
