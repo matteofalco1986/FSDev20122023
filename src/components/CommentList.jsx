@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from 'react-bootstrap';
+import SingleComment from "./SingleComment";
 
 class CommentList extends React.Component {
     constructor(props) {
@@ -8,10 +9,12 @@ class CommentList extends React.Component {
     render() {
         return (
             <div className='d-flex justify-content-between align-items-center'>
-                <Card.Text className='m-0'>
-                    {this.props.bookArray.comment}
-                </Card.Text>
-                <Button variant='danger'>X</Button>
+                {this.props.comments.map((comment) => (
+                    <>
+                        <SingleComment singleReview={comment}/>
+                        <Button variant='danger'>X</Button>
+                    </>
+                ))}
             </div>
         )
     }
